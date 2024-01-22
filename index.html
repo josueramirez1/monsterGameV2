@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style type="text/css">
+      @font-face {
+        font-family: Monster_Inc;
+
+        font-weight: 100;
+        src: url("font/Monsters_Inc.otf");
+      }
+
       body {
         margin: 0 auto;
         max-width: 40em;
         width: 88%;
+        font-family: Monster_Inc, "Times New Roman", Times, serif;
       }
 
       /**
@@ -29,6 +37,25 @@
       /**
 			 * Make sure images scale
 			 */
+
+      h1 {
+        font-size: 4.8rem;
+        margin: 0;
+        padding: 0;
+        letter-spacing: 0.2rem;
+      }
+
+      .description {
+        font-size: 2.6rem;
+        text-align: center;
+        margin: 0;
+        letter-spacing: 0.1rem;
+      }
+
+      .text-small {
+        font-size: 1.4rem;
+      }
+
       img {
         height: auto;
         max-width: 100%;
@@ -162,9 +189,10 @@
       }
 
       const newMonsterArray = shuffle(Array.from(monsters));
-      console.log(newMonsterArray);
 
-      app.innerHTML = `<div class="row">
+      app.innerHTML = `
+      <h2 class="description">Please select a door O Try not to get the sock.</h2>
+      <div class="row">
           ${newMonsterArray
             .map((monster, index) => {
               return `
@@ -184,7 +212,6 @@
         if (!button) return;
 
         let img = square.children[1];
-        console.log(img);
         img.removeAttribute("hidden");
         button.remove();
       });
